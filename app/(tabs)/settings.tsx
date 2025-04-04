@@ -1,12 +1,32 @@
 // components/CenteredText.js
-import { View, Text } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
+import { useTheme } from "@/context/ThemeContext";
+import ThemeToggle from "@/components/ThemeToggle";
 
 export default function Settings() {
+  const { theme } = useTheme();
   return (
-    <View className="flex-1 justify-center items-center bg-gray-100">
-      <Text className="text-blue-500 text-2xl font-bold p-4">
+  <View style={[styles.container, {backgroundColor: theme.background}]}>
+      <Text style={[styles.text, {color: theme.text}]}>
        Settings
       </Text>
+      <ThemeToggle />
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex : 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+
+  text: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    padding: 16,
+    textAlign: "center"
+  }
+
+})

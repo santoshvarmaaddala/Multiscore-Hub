@@ -1,12 +1,27 @@
-// components/CenteredText.js
-import { View, Text } from "react-native";
+import React from 'react';
+import { View, Text, StyleSheet } from 'react-native';
+import { useTheme } from '@/context/ThemeContext';
 
 export default function History() {
+  const { theme } = useTheme(); // Access the current theme
+
   return (
-    <View className="flex-1 justify-center items-center bg-gray-100">
-      <Text className="text-green-500 text-2xl font-bold p-4">
-       history
-      </Text>
+    <View style={[styles.container, { backgroundColor: theme.background }]}>
+      <Text style={[styles.text, { color: theme.text }]}>History</Text>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center', // Center vertically
+    alignItems: 'center', // Center horizontally
+  },
+  text: {
+    fontSize: 24, // Large font size
+    fontWeight: 'bold', // Bold text
+    padding: 16, // Add padding around the text
+    textAlign: 'center', // Center-align the text
+  },
+});

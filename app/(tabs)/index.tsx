@@ -1,8 +1,10 @@
 import React from "react";
-import { View, Text, StyleSheet, FlatList } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import { FlatGrid } from "react-native-super-grid";
 import SportCard from "@/components/SportCard";
+import { useTheme } from "@/context/ThemeContext"; // Import the theme context
 import { Sport } from "@/lib/types";
+import { FlatList } from "react-native";
 
 // Define sports data with categories
 const sportsData = [
@@ -17,14 +19,16 @@ const sportsData = [
 ];
 
 export default function Home() {
+  const { theme } = useTheme(); // Access the current theme
+
   return (
     <FlatList
       data={sportsData} // Use sportsData as the data source
       keyExtractor={(item) => item.title} // Use the title as the key
-      contentContainerStyle={styles.container} // Apply container styles
+      contentContainerStyle={[styles.container, { backgroundColor: theme.background }]} // Apply container styles
       renderItem={({ item }) => (
         <View style={styles.sectionContainer}>
-          <Text style={styles.title}>{item.title}</Text>
+          <Text style={[styles.title, { color: theme.sectionTitle }]}>{item.title}</Text>
           <FlatGrid
             itemDimension={100}
             data={item.data}
@@ -47,8 +51,8 @@ const styles = StyleSheet.create({
     marginBottom: 24,
   },
   title: {
-    fontSize: 18,
+    fontSize: 20,
     fontWeight: 'bold',
-    marginBottom: 16,
+    marginBottom: 12,
   },
 });

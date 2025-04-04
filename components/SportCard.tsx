@@ -1,16 +1,17 @@
 import React from 'react';
 import { TouchableOpacity, Text, View, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { useTheme } from '@/context/ThemeContext';
 
 type Sport = 'badminton' | 'cricket' | 'kabaddi' | 'volleyball' | 'football';
 
 interface SportCardProps {
   sport: Sport;
-  style?: object;
 }
 
-const SportCard: React.FC<SportCardProps> = ({ sport, style }) => {
+const SportCard: React.FC<SportCardProps> = ({ sport }) => {
   const navigation = useNavigation();
+  const {theme} = useTheme();
 
   const getSportEmoji = () => {
     switch (sport) {
@@ -35,11 +36,11 @@ const SportCard: React.FC<SportCardProps> = ({ sport, style }) => {
 
   return (
     <TouchableOpacity
-      style={[styles.card, style]}
+      style={[styles.card,  { backgroundColor: theme.cardBackground } ]}
       onPress={() => console.log("hi")}
     >
-      <Text style={styles.emoji}>{getSportEmoji()}</Text>
-      <Text style={styles.name}>{getSportName()}</Text>
+      <Text style={[styles.emoji, { color: theme.text }]}>{getSportEmoji()}</Text>
+      <Text style={[styles.name, , { color: theme.text }]}>{getSportName()}</Text>
     </TouchableOpacity>
   );
 };
