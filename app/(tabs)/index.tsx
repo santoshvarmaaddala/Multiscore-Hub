@@ -5,18 +5,8 @@ import { FlatGrid } from "react-native-super-grid";
 import SportCard from "@/components/SportCard";
 import { useTheme } from "@/context/ThemeContext";
 import { Sport } from "@/lib/types";
+import {sportsData} from "@/lib/sportsData.js";
 
-
-const sportsData = [
-  {
-    title: "Available Sports",
-    data: ["badminton"],
-  },
-  {
-    title: "Coming Soon",
-    data: ["cricket", "kabaddi", "volleyball", "football"],
-  },
-];
 
 export default function Home() {
   const { theme } = useTheme();
@@ -53,7 +43,8 @@ export default function Home() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 16
+    paddingTop: 10,
+    paddingLeft: 8
   },
   sectionContainer: {
     marginBottom: 24,

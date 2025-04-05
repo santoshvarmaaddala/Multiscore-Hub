@@ -65,3 +65,4 @@ export interface AppSettings {
   vibration: boolean;
   recentMatches: number; // number of recent matches to show
 }
+

@@ -3,7 +3,7 @@ export const lightTheme = {
   background: '#ffffff',
   text: '#000000',
   cardBackground: '#f5f5f5',
-  primary: '#007bff',
+  primary: '#cccccc',
   sectionTitle: '#333333', // Dark gray for section titles
   statusBarStyle: 'dark-content', // Status bar text color for light mode
   statusBarBackground: '#ffffff', // Status bar background for light mode
@@ -16,7 +16,7 @@ export const darkTheme = {
   background: '#121212',
   text: '#ffffff',
   cardBackground: '#1e1e1e',
-  primary: '#bb86fc',
+  primary: '#333333',
   sectionTitle: '#cccccc', // Light gray for section titles
   statusBarStyle: 'light-content', // Status bar text color for dark mode
   statusBarBackground: '#121212', // Status bar background for dark mode
